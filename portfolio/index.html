@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dania Khan — AI Automation & AI Agent Developer</title>
+<meta name="description" content="AI Automation & AI Agent Developer building intelligent agents, voice AI, chatbots and n8n workflows that automate repetitive business work." />
+<meta property="og:title" content="Dania Khan — AI Automation & AI Agent Developer" />
+<meta property="og:description" content="I build intelligent AI systems, agents and automated workflows for businesses." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ambient background -->
+<div class="bg-layer" aria-hidden="true">
+  <div class="grid-pattern"></div>
+  <div class="glow glow-pink"></div>
+  <div class="glow glow-blue"></div>
+  <canvas id="nodes-canvas"></canvas>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">DANIA<span>KHAN</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary btn-sm nav-cta">Let's Talk</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="badge">AI AUTOMATION <i>•</i> AI AGENTS <i>•</i> VOICE AI</span>
+      <h1>I Build Intelligent <span class="grad">AI Systems</span> That Automate Work.</h1>
+      <p class="lead">AI Automation &amp; Agent Developer helping businesses automate repetitive processes, build intelligent agents and create scalable AI-powered workflows.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Let's Work Together</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>15+</strong><span>Workflows Built</span></div>
+        <div><strong>6</strong><span>Automation Domains</span></div>
+        <div><strong>24/7</strong><span>Systems Running</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="orb"></div>
+      <svg class="network" viewBox="0 0 460 460" role="img" aria-label="Abstract AI automation network">
+        <defs>
+          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff1493" stop-opacity=".9"/>
+            <stop offset="100%" stop-color="#00a8ff" stop-opacity=".9"/>
+          </linearGradient>
+        </defs>
+        <g class="net-lines" stroke="url(#lineGrad)" stroke-width="1.1" fill="none">
+          <path d="M80 120 L230 70 L380 140"/>
+          <path d="M80 120 L150 250 L230 70"/>
+          <path d="M150 250 L300 300 L380 140"/>
+          <path d="M300 300 L230 400 L150 250"/>
+          <path d="M230 70 L300 300"/>
+          <path d="M380 140 L230 400"/>
+        </g>
+        <g class="net-nodes">
+          <circle cx="80" cy="120" r="7"/>
+          <circle cx="230" cy="70" r="10"/>
+          <circle cx="380" cy="140" r="7"/>
+          <circle cx="150" cy="250" r="9"/>
+          <circle cx="300" cy="300" r="8"/>
+          <circle cx="230" cy="400" r="7"/>
+        </g>
+      </svg>
+      <div class="pipeline glass">
+        <div class="pipe-row"><span class="dot pink"></span> Trigger — new email received</div>
+        <div class="pipe-row"><span class="dot blue"></span> AI Agent — classify &amp; reason</div>
+        <div class="pipe-row"><span class="dot pink"></span> Action — draft &amp; send reply</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="eyebrow">About Me</span>
+      <h2>Turning Repetitive Work Into <span class="grad">Intelligent Systems</span>.</h2>
+      <p>I design and build automation systems and AI-powered solutions that help businesses save time, cut down repetitive manual work and deliver faster, better customer experiences.</p>
+      <p>From n8n workflows and API integrations to reasoning agents, voice assistants and chatbots — I turn messy manual processes into reliable systems that run on their own.</p>
+      <div class="chips">
+        <span>AI Automation</span><span>n8n</span><span>AI Agents</span><span>Voice Agents</span>
+        <span>Chatbots</span><span>APIs</span><span>Workflow Design</span><span>Business Process Automation</span>
+      </div>
+    </div>
+    <div class="stat-grid reveal">
+      <div class="stat glass"><h3>AI Automation</h3><p>Intelligent workflows that run the busywork.</p></div>
+      <div class="stat glass"><h3>AI Agents</h3><p>Tool-using agents that reason and act.</p></div>
+      <div class="stat glass"><h3>Voice AI</h3><p>Natural voice assistants for real conversations.</p></div>
+      <div class="stat glass"><h3>Workflow Automation</h3><p>Apps and APIs connected end to end.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>What I Build</h2>
+      <p class="sub">Systems designed around your process — not generic templates.</p>
+    </div>
+    <div class="cards">
+      <article class="card glass reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>AI Automation</h3>
+        <p>Automate repetitive business processes using intelligent workflows and AI.</p>
+      </article>
+      <article class="card glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 13h.01M15 13h.01"/></svg></div>
+        <h3>AI Agents</h3>
+        <p>Build AI agents that can reason, interact with tools and perform useful tasks.</p>
+      </article>
+      <article class="card glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 4v16M8 8v8M4 11v2M16 8v8M20 11v2"/></svg></div>
+        <h3>AI Voice Agents</h3>
+        <p>Create voice-based AI assistants for customer interaction, support and automation.</p>
+      </article>
+      <article class="card glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3z"/><path d="M9 10h6M9 13h4"/></svg></div>
+        <h3>AI Chatbots</h3>
+        <p>Build intelligent conversational systems for websites and businesses.</p>
+      </article>
+      <article class="card glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="5" rx="2"/><rect x="15" y="15" width="6" height="5" rx="2"/><path d="M6 9v4a4 4 0 0 0 4 4h5"/></svg></div>
+        <h3>Workflow Automation</h3>
+        <p>Connect applications, APIs and business processes into seamless automated workflows.</p>
+      </article>
+      <article class="card glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V10M11 20V4M16 20v-7M21 20v-3"/></svg></div>
+        <h3>Business Automation</h3>
+        <p>Design custom AI-powered systems that reduce manual work and improve efficiency.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section class="section" id="stack">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Tech Stack</span>
+      <h2>Tools I Work With</h2>
+    </div>
+    <div class="pills reveal">
+      <span class="pill">n8n</span>
+      <span class="pill">JavaScript</span>
+      <span class="pill">HTML</span>
+      <span class="pill">CSS</span>
+      <span class="pill">REST APIs</span>
+      <span class="pill">Webhooks</span>
+      <span class="pill">AI APIs</span>
+      <span class="pill">Automation Workflows</span>
+      <span class="pill">Chatbots</span>
+      <span class="pill">Voice AI</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Featured <span class="grad">Automations</span></h2>
+      <p class="sub">
+        Real automation workflows and AI projects built with n8n.
+      </p>
+    </div>
+
+    <div class="projects">
+
+      <!-- PROJECT 01 -->
+      <article class="project glass reveal">
+        <div class="project-visual pv-1">
+          <span class="tag">n8n Project 01</span>
+        </div>
+
+        <div class="project-body">
+          <h3>AI Email Automation</h3>
+
+          <p>
+            An automated email workflow built with n8n that processes
+            customer messages and helps generate intelligent automated
+            responses.
+          </p>
+
+          <div class="tech">
+            <span>n8n</span>
+            <span>AI</span>
+            <span>Email Automation</span>
+            <span>Webhooks</span>
+          </div>
+
+          <a
+            href="https://github.com/dania270/ai-automation-studio/blob/main/public/portfolio/n8n%20workflows/mail%20aggent.json"
+            target="_blank"
+            class="link-btn"
+          >
+            View Workflow <i>→</i>
+          </a>
+        </div>
+      </article>
+
+
+      <!-- PROJECT 02 -->
+      <article class="project glass reveal">
+        <div class="project-visual pv-2">
+          <span class="tag">n8n Project 02</span>
+        </div>
+
+        <div class="project-body">
+          <h3>AI Customer Support Chatbot</h3>
+
+          <p>
+            An AI-powered chatbot workflow built with n8n to receive
+            user messages, process requests and provide automated
+            customer support.
+          </p>
+
+          <div class="tech">
+            <span>n8n</span>
+            <span>AI Chatbot</span>
+            <span>Automation</span>
+            <span>Webhooks</span>
+          </div>
+
+          <a
+            href="https://github.com/dania270/ai-automation-studio/blob/main/public/portfolio/n8n%20workflows/mychatapp.json"
+            class="link-btn"
+          >
+            View Workflow <i>→</i>
+          </a>
+        </div>
+      </article>
+
+
+      <!-- PROJECT 03 -->
+      <article class="project glass reveal">
+        <div class="project-visual pv-3">
+          <span class="tag">Coming Soon</span>
+        </div>
+
+        <div class="project-body">
+          <h3>AI Agent Workflow</h3>
+
+          <p>
+            An AI agent automation project focused on using tools,
+            APIs and multi-step workflows to automate complex tasks.
+          </p>
+
+          <div class="tech">
+            <span>AI Agents</span>
+            <span>REST APIs</span>
+            <span>n8n</span>
+          </div>
+
+          <a href="#contact" class="link-btn">
+            Coming Soon <i>→</i>
+          </a>
+        </div>
+      </article>
+
+
+      <!-- PROJECT 04 -->
+      <article class="project glass reveal">
+        <div class="project-visual pv-4">
+          <span class="tag">Coming Soon</span>
+        </div>
+
+        <div class="project-body">
+          <h3>Voice AI Agent</h3>
+
+          <p>
+            A conversational voice AI project designed to automate
+            customer communication and handle user interactions.
+          </p>
+
+          <div class="tech">
+            <span>Voice AI</span>
+            <span>AI APIs</span>
+            <span>Webhooks</span>
+          </div>
+
+          <a href="#contact" class="link-btn">
+            Coming Soon <i>→</i>
+          </a>
+        </div>
+      </article>
+
+
+      <!-- PROJECT 05 -->
+      <article class="project glass reveal wide">
+        <div class="project-visual pv-5">
+          <span class="tag">Coming Soon</span>
+        </div>
+
+        <div class="project-body">
+          <h3>Automated Business Workflow</h3>
+
+          <p>
+            A future automation project connecting applications and
+            APIs to reduce repetitive manual tasks across business
+            operations.
+          </p>
+
+          <div class="tech">
+            <span>n8n</span>
+            <span>REST APIs</span>
+            <span>Automation</span>
+            <span>Webhooks</span>
+          </div>
+
+          <a href="#contact" class="link-btn">
+            Coming Soon <i>→</i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Process</span>
+      <h2>How I Work</h2>
+    </div>
+    <ol class="timeline">
+      <li class="reveal"><span class="num">01</span><div><h3>Understand</h3><p>Understand the business problem and identify repetitive tasks.</p></div></li>
+      <li class="reveal"><span class="num">02</span><div><h3>Design</h3><p>Design the automation or AI agent architecture.</p></div></li>
+      <li class="reveal"><span class="num">03</span><div><h3>Build</h3><p>Build workflows, agents, integrations and interfaces.</p></div></li>
+      <li class="reveal"><span class="num">04</span><div><h3>Test</h3><p>Test the system and improve reliability.</p></div></li>
+      <li class="reveal"><span class="num">05</span><div><h3>Automate</h3><p>Deploy a scalable system that works with minimal manual intervention.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Benefits</span>
+      <h2>Why AI Automation?</h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit reveal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><h3>Save Time</h3><p>Hours returned to your team every single week.</p></div>
+      <div class="benefit reveal"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h6"/></svg><h3>Reduce Manual Work</h3><p>Repetitive tasks handled without human input.</p></div>
+      <div class="benefit reveal"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><h3>Faster Customer Response</h3><p>Instant replies instead of long queues.</p></div>
+      <div class="benefit reveal"><svg viewBox="0 0 24 24"><path d="M4 18V8M10 18V4M16 18v-6M22 18v-9"/></svg><h3>Scalable Workflows</h3><p>Systems that grow with your volume.</p></div>
+      <div class="benefit reveal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 5V3M12 21v-2M5 12H3M21 12h-2M7 7 5.5 5.5M18.5 18.5 17 17M17 7l1.5-1.5M5.5 18.5 7 17"/></svg><h3>Intelligent Decision Making</h3><p>Agents that reason before they act.</p></div>
+      <div class="benefit reveal"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l4 2"/></svg><h3>24/7 Automation</h3><p>Your systems never clock out.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section">
+  <div class="container">
+    <div class="cta glass reveal">
+      <h2>Have a Process That Should Be Automated?</h2>
+      <p>Let's turn repetitive work into an intelligent system.</p>
+      <a href="#contact" class="btn btn-primary btn-lg">Start a Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="container contact-grid">
+
+    <!-- CONTACT INFO -->
+    <div class="reveal">
+      <span class="eyebrow">Start a Project</span>
+
+      <h2>
+        Let's Build Something
+        <span class="grad">Automated</span>.
+      </h2>
+
+      <p>
+        Tell me about your project, your goals, budget and timeline.
+        I'll review your requirements and get back to you with the
+        best automation approach.
+      </p>
+
+      <ul class="contact-links">
+        <li>
+          <a href="mailto:daniakhan2700@gmail.com">
+            Email — daniakhan2700@gmail.com
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://github.com/dania270"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub — /dania270
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://linkedin.com/in/your-profile"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn — /your-profile
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- LEAD QUALIFICATION FORM -->
+    <form class="form glass reveal" id="contact-form" novalidate>
+
+      <!-- NAME -->
+      <div class="field">
+        <label for="name">Full Name *</label>
+
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Your full name"
+          required
+        />
+      </div>
+
+
+      <!-- EMAIL -->
+      <div class="field">
+        <label for="email">Email Address *</label>
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@company.com"
+          required
+        />
+      </div>
+
+
+      <!-- COMPANY -->
+      <div class="field">
+        <label for="company">Company / Business</label>
+
+        <input
+          id="company"
+          name="company"
+          type="text"
+          placeholder="Your company or business name"
+        />
+      </div>
+
+
+      <!-- PHONE -->
+      <div class="field">
+        <label for="phone">WhatsApp / Phone</label>
+
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="+92 300 1234567"
+        />
+      </div>
+
+
+      <!-- SERVICE -->
+      <div class="field">
+        <label for="project">What do you need? *</label>
+
+        <select id="project" name="project" required>
+          <option value="">Select a service</option>
+          <option value="AI Automation">AI Automation</option>
+          <option value="AI Agent">AI Agent</option>
+          <option value="Voice Agent">Voice Agent</option>
+          <option value="AI Chatbot">AI Chatbot</option>
+          <option value="n8n Workflow">n8n Workflow</option>
+          <option value="Business Automation">Business Automation</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+
+      <!-- TEAM SIZE -->
+      <div class="field">
+        <label for="team">How large is your team?</label>
+
+        <select id="team" name="team">
+          <option value="">Select team size</option>
+          <option value="Just me">Just me</option>
+          <option value="2-5">2–5 people</option>
+          <option value="6-10">6–10 people</option>
+          <option value="11-50">11–50 people</option>
+          <option value="50+">50+ people</option>
+        </select>
+      </div>
+
+
+      <!-- BUDGET -->
+      <div class="field">
+        <label for="budget">What's your estimated budget?</label>
+
+        <select id="budget" name="budget">
+          <option value="">Select your budget</option>
+          <option value="Under $100">Under $100</option>
+          <option value="$100-$300">$100–$300</option>
+          <option value="$300-$500">$300–$500</option>
+          <option value="$500-$1000">$500–$1,000</option>
+          <option value="$1000+">$1,000+</option>
+        </select>
+      </div>
+
+
+      <!-- TIMELINE -->
+      <div class="field">
+        <label for="timeline">When do you need it?</label>
+
+        <select id="timeline" name="timeline">
+          <option value="">Select a timeline</option>
+          <option value="ASAP">ASAP</option>
+          <option value="Within 1 week">Within 1 week</option>
+          <option value="2-4 weeks">2–4 weeks</option>
+          <option value="1-3 months">1–3 months</option>
+          <option value="Just exploring">Just exploring</option>
+        </select>
+      </div>
+
+
+      <!-- PROJECT DETAILS -->
+      <div class="field">
+        <label for="message">Tell me about your project *</label>
+
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="What process or problem would you like to automate?"
+          required
+        ></textarea>
+      </div>
+
+
+      <!-- SUBMIT -->
+      <button
+        type="submit"
+        class="btn btn-primary btn-lg"
+      >
+        Submit Project Request
+      </button>
+
+      <p
+        class="form-note"
+        id="form-note"
+        role="status"
+      ></p>
+
+    </form>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="logo">DANIA<span>KHAN</span></span>
+    <p>AI Automation &amp; AI Agent Developer</p>
+    <p class="copy">© <span id="year"></span> Dania Khan. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

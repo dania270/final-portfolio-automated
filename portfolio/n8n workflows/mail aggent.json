@@ -1,0 +1,320 @@
+{
+  "name": "mail aggent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -112,
+        0
+      ],
+      "id": "661452a7-1fc4-43d8-8fed-c1a82a8a0154",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=subject : {{ $json.headers.subject }}\nemail body :{{ $json.text }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "<agentinstructions>\n\n<role>\n    <name> email reply agent</name>\n    <description>a helpful email reply agent</description>\n</role>\n\n<goal>\n    <primary>draft custom but very professional email replies which are 100% humanlike</primary>\n    <secoundry>as an email reply agent you should not only reply but also build trust and reputation with the person you replying to</secoundry>\n</goal>\n\n<instructions>\n    <instruction>once you recieve the email , you should throughly understand and analyse the subject line and full email body message</instruction>\n    <instruction>after you read the email , review <details> and <aims> to understabd the context of the user before drafting a reply</instruction>\n    <instruction>draft a professinal reply using <userinfo>.use age when neccesary</instruction>\n</instructions>\n\n<userinfo>\n    <details>\n        <detail name = \"user name\"> Dania khan</detail>\n        <detail name = \"company\"> AI learning pak</detail>\n        <detail name = \"age\"> 21 </detail>\n        <detail name = \"contact info\"> +923263173425</detail>\n    </details>\n\n    <aims>\n        <aim name = \"mission\"> wants to teach AI to people in the most simplest way</aim>\n        <aim name = \"focus\">rightnow focussing more on teaching rather then collabs and promotions </aim>\n        <aim name = \"community focus\"> focus on community right now</aim>\n    </aims>\n</userinfo>\n\n<examples>\n    <example>\n        <userinput>\n             subject : promotinak message\n        this message is regarding a promotion that we are going on doing\n        </userinput>\n\n        <useroutput>\n            Hi,\n\n        Thank you for reaching out and for considering AI Learning Pak for your promotional campaign.\n\n        At the moment, our main focus is on educating our community and making AI simple and accessible for people who are looking to learn and understand it better. Because of that, we are currently being selective about promotional and collaboration opportunities.\n\n        That said, I be happy to learn more about the promotion, what you have in mind, and how you see it aligning with our audience and educational goals. Please feel free to share the details, including the campaign, deliverables, and any other relevant information.\n\n        Looking forward to hearing from you.\n\n        Best regards,\n        Dania Khan\n        AI Learning Pak\n        +92 326 3173425\n\n        </useroutput>\n\n       \n    </example>\n\n    <example>\n        <userinput>\n             subject : promotinak message\n        this message is regarding a promotion that we are going on doing\n        </userinput>\n        <useroutput>\n            Hi Bilal,\n\n        Thank you for reaching out and for the kind words about our work. I really appreciate you taking the time to share the collaboration ideas.\n\n        At the moment, my main focus with AI Learning Pak is building and educating our community around AI in the simplest and most practical way possible. So, right now, Im prioritizing educational content and community growth over promotional collaborations.\n\n        That said, Im definitely open to learning more about what you have in mind. If you feel theres a way we could create something genuinely useful and educational for both audiences, feel free to send over your media kit and a few ideas.\n\n        Id be happy to take a look and see if theres a good fit.\n\n        Best regards,\n        Dania Khan\n        AI Learning Pak\n        +92 326 3173425\n\n        </useroutput>\n    </example>\n</examples>\n\n</agentinstructions>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        512,
+        0
+      ],
+      "id": "90ce32c6-bdb1-45a7-9b4c-38f08632d127",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        432,
+        208
+      ],
+      "id": "c8b043c9-ec29-4bf7-8d72-de864943aac8",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Xu6ZXCKpQ5q7UDnq",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "filters": {
+          "labelIds": [
+            "UNREAD"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        80,
+        0
+      ],
+      "id": "49695c53-a527-479b-ac74-746f394b2b0e",
+      "name": "Get many messages",
+      "webhookId": "ff977b38-3131-433f-b13a-eff4b748a4b5",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "miixxneTz6zJoHw4",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $json.threadId }}",
+        "simple": false,
+        "options": {
+          "downloadAttachments": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        304,
+        0
+      ],
+      "id": "ae78711c-671a-478f-bb41-cd48612279dc",
+      "name": "gmail all details",
+      "webhookId": "e20ba954-c86f-4e9b-bf12-397a0c5d128d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "miixxneTz6zJoHw4",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appLSdoXVyIXLDv4X",
+          "mode": "list",
+          "cachedResultName": "mail agent",
+          "cachedResultUrl": "https://airtable.com/appLSdoXVyIXLDv4X"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblS3j2KNaoe9jXl8",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appLSdoXVyIXLDv4X/tblS3j2KNaoe9jXl8"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sender name": "={{ $('gmail all details').item.json.to.value[0].name }}",
+            "thread id": "={{ $('gmail all details').item.json.threadId }}",
+            "email body": "={{ $('gmail all details').item.json.text }}",
+            "from email": "={{ $('gmail all details').item.json.headers.from }}",
+            "body draft reply": "={{ $json.output }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "sender name",
+              "displayName": "sender name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "from email",
+              "displayName": "from email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "email body",
+              "displayName": "email body",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "body draft reply",
+              "displayName": "body draft reply",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "thread id",
+              "displayName": "thread id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        784,
+        0
+      ],
+      "id": "9549e69c-9a02-469c-8273-6694241691fe",
+      "name": "Create a record",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "8uNr75joYXnIMBK3",
+          "name": "Airtable account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('gmail all details').item.json.threadId }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1008,
+        0
+      ],
+      "id": "de7c5a3e-4656-4029-8846-bd20a1cb8316",
+      "name": "Mark a message as read",
+      "webhookId": "8bec4c15-4433-4929-87a2-a3ad7a97169e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "miixxneTz6zJoHw4",
+          "name": "Gmail account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get many messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many messages": {
+      "main": [
+        [
+          {
+            "node": "gmail all details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "gmail all details": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record": {
+      "main": [
+        [
+          {
+            "node": "Mark a message as read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "70af3cf9-2c24-463c-993a-4d0c0d030543",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "16878e9534ddc4ce942ba173bbadc2e0b433f03d1fc47142ce734194dda233cf"
+  },
+  "nodeGroups": [],
+  "id": "TaVhrYPZRC1AtHbD",
+  "tags": []
+}
